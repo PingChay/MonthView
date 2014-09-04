@@ -128,9 +128,17 @@
     [calender setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     [calender setFirstWeekday:1];
     
-    NSDateComponents *com = [calender components:(NSCalendarUnitMonth) fromDate:cell.calendarDate];
+    NSDateComponents *com = [calender components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:cell.calendarDate];
     
-    if (com.month < self.month)
+    if (com.year < self.year)
+    {
+        [self previousSelect:nil];
+    }
+    else if (com.year > self.year)
+    {
+        [self nextSelect:nil];
+    }
+    else if (com.month < self.month)
     {
         [self previousSelect:nil];
     }
