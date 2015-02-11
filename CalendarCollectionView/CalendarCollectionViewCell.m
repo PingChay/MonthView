@@ -23,7 +23,7 @@
 - (void)initialize
 {
     [self.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [self.layer setBorderWidth:1.0f];
+    [self.layer setBorderWidth:0.5f];
 }
 
 @end

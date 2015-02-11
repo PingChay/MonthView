@@ -105,13 +105,30 @@
     [calender setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     [calender setFirstWeekday:1];
     
-    NSDateComponents *com = [calender components:(NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:cellDate];
+    NSDateComponents *com = [calender components:(NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday) fromDate:cellDate];
     
     // Check month is Current
     if (com.month != self.month)
+    {
         [cell.calendarNumberLabel setTextColor:[UIColor darkGrayColor]];
+        [cell setBackgroundColor:[UIColor grayColor]];
+    }
     else
+    {
         [cell.calendarNumberLabel setTextColor:[UIColor whiteColor]];
+        if (com.weekday == 1)
+        {
+            [cell setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500]];
+        }
+        else if (com.weekday == 7)
+        {
+            [cell setBackgroundColor:[UIColor colorWithRed:0.500 green:0.000 blue:0.500 alpha:0.500]];
+        }
+        else
+        {
+            [cell setBackgroundColor:[UIColor blackColor]];
+        }
+    }
     
     // setting day cell
     [cell.calendarNumberLabel setText:[NSString stringWithFormat:@"%d",com.day]];
