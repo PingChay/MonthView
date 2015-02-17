@@ -11,6 +11,7 @@
 		9A557F1A1A931EC4004F7175 /* MonthCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A557F151A931EC4004F7175 /* MonthCollectionViewCell.xib */; };
 		9A557F1B1A931EC4004F7175 /* MonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A557F171A931EC4004F7175 /* MonthView.m */; };
 		9A557F1C1A931EC4004F7175 /* MonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A557F181A931EC4004F7175 /* MonthView.xib */; };
+		9A557F1F1A93302B004F7175 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9A557F1E1A93302B004F7175 /* README.md */; };
 		9AD0957C19B8254A009DE26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD0957B19B8254A009DE26D /* Foundation.framework */; };
 		9AD0957E19B8254A009DE26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD0957D19B8254A009DE26D /* CoreGraphics.framework */; };
 		9AD0958019B8254A009DE26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD0957F19B8254A009DE26D /* UIKit.framework */; };
@@ -45,6 +46,7 @@
 		9A557F161A931EC4004F7175 /* MonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthView.h; sourceTree = "<group>"; };
 		9A557F171A931EC4004F7175 /* MonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthView.m; sourceTree = "<group>"; };
 		9A557F181A931EC4004F7175 /* MonthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthView.xib; sourceTree = "<group>"; };
+		9A557F1E1A93302B004F7175 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9AD0957819B8254A009DE26D /* CalendarCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD0957B19B8254A009DE26D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9AD0957D19B8254A009DE26D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,6 +110,7 @@
 		9AD0956F19B8254A009DE26D = {
 			isa = PBXGroup;
 			children = (
+				9A557F1E1A93302B004F7175 /* README.md */,
 				9AD0958119B8254A009DE26D /* CalendarCollectionView */,
 				9AD095A019B8254A009DE26D /* CalendarCollectionViewTests */,
 				9AD0957A19B8254A009DE26D /* Frameworks */,
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A557F1F1A93302B004F7175 /* README.md in Sources */,
 				9A557F191A931EC4004F7175 /* MonthCollectionViewCell.m in Sources */,
 				9AD0959219B8254A009DE26D /* ViewController.m in Sources */,
 				9AD0958C19B8254A009DE26D /* AppDelegate.m in Sources */,
