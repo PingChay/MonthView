@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A557F191A931EC4004F7175 /* MonthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A557F141A931EC4004F7175 /* MonthCollectionViewCell.m */; };
+		9A557F1A1A931EC4004F7175 /* MonthCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A557F151A931EC4004F7175 /* MonthCollectionViewCell.xib */; };
+		9A557F1B1A931EC4004F7175 /* MonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A557F171A931EC4004F7175 /* MonthView.m */; };
+		9A557F1C1A931EC4004F7175 /* MonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A557F181A931EC4004F7175 /* MonthView.xib */; };
 		9AD0957C19B8254A009DE26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD0957B19B8254A009DE26D /* Foundation.framework */; };
 		9AD0957E19B8254A009DE26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD0957D19B8254A009DE26D /* CoreGraphics.framework */; };
 		9AD0958019B8254A009DE26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD0957F19B8254A009DE26D /* UIKit.framework */; };
@@ -21,7 +25,6 @@
 		9AD0959D19B8254A009DE26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD0957F19B8254A009DE26D /* UIKit.framework */; };
 		9AD095A519B8254A009DE26D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AD095A319B8254A009DE26D /* InfoPlist.strings */; };
 		9AD095A719B8254A009DE26D /* CalendarCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD095A619B8254A009DE26D /* CalendarCollectionViewTests.m */; };
-		9AD095B219B82709009DE26D /* CalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD095B119B82709009DE26D /* CalendarCollectionViewCell.m */; };
 		9AD095B419B82A64009DE26D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD095B319B82A64009DE26D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A557F131A931EC4004F7175 /* MonthCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthCollectionViewCell.h; sourceTree = "<group>"; };
+		9A557F141A931EC4004F7175 /* MonthCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthCollectionViewCell.m; sourceTree = "<group>"; };
+		9A557F151A931EC4004F7175 /* MonthCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthCollectionViewCell.xib; sourceTree = "<group>"; };
+		9A557F161A931EC4004F7175 /* MonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthView.h; sourceTree = "<group>"; };
+		9A557F171A931EC4004F7175 /* MonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthView.m; sourceTree = "<group>"; };
+		9A557F181A931EC4004F7175 /* MonthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthView.xib; sourceTree = "<group>"; };
 		9AD0957819B8254A009DE26D /* CalendarCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD0957B19B8254A009DE26D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9AD0957D19B8254A009DE26D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,8 +64,6 @@
 		9AD095A219B8254A009DE26D /* CalendarCollectionViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalendarCollectionViewTests-Info.plist"; sourceTree = "<group>"; };
 		9AD095A419B8254A009DE26D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9AD095A619B8254A009DE26D /* CalendarCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarCollectionViewTests.m; sourceTree = "<group>"; };
-		9AD095B019B82709009DE26D /* CalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarCollectionViewCell.h; sourceTree = "<group>"; };
-		9AD095B119B82709009DE26D /* CalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarCollectionViewCell.m; sourceTree = "<group>"; };
 		9AD095B319B82A64009DE26D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -85,6 +92,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A557F1D1A931EDA004F7175 /* MonthView */ = {
+			isa = PBXGroup;
+			children = (
+				9A557F161A931EC4004F7175 /* MonthView.h */,
+				9A557F171A931EC4004F7175 /* MonthView.m */,
+				9A557F181A931EC4004F7175 /* MonthView.xib */,
+				9A557F131A931EC4004F7175 /* MonthCollectionViewCell.h */,
+				9A557F141A931EC4004F7175 /* MonthCollectionViewCell.m */,
+				9A557F151A931EC4004F7175 /* MonthCollectionViewCell.xib */,
+			);
+			name = MonthView;
+			sourceTree = "<group>";
+		};
 		9AD0956F19B8254A009DE26D = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +144,7 @@
 				9AD0958D19B8254A009DE26D /* Main.storyboard */,
 				9AD0959019B8254A009DE26D /* ViewController.h */,
 				9AD0959119B8254A009DE26D /* ViewController.m */,
-				9AD095B019B82709009DE26D /* CalendarCollectionViewCell.h */,
-				9AD095B119B82709009DE26D /* CalendarCollectionViewCell.m */,
+				9A557F1D1A931EDA004F7175 /* MonthView */,
 				9AD0959319B8254A009DE26D /* Images.xcassets */,
 				9AD0958219B8254A009DE26D /* Supporting Files */,
 			);
@@ -238,6 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD0959419B8254A009DE26D /* Images.xcassets in Resources */,
+				9A557F1C1A931EC4004F7175 /* MonthView.xib in Resources */,
+				9A557F1A1A931EC4004F7175 /* MonthCollectionViewCell.xib in Resources */,
 				9AD0958619B8254A009DE26D /* InfoPlist.strings in Resources */,
 				9AD0958F19B8254A009DE26D /* Main.storyboard in Resources */,
 			);
@@ -258,10 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD095B219B82709009DE26D /* CalendarCollectionViewCell.m in Sources */,
+				9A557F191A931EC4004F7175 /* MonthCollectionViewCell.m in Sources */,
 				9AD0959219B8254A009DE26D /* ViewController.m in Sources */,
 				9AD0958C19B8254A009DE26D /* AppDelegate.m in Sources */,
 				9AD0958819B8254A009DE26D /* main.m in Sources */,
+				9A557F1B1A931EC4004F7175 /* MonthView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +492,7 @@
 				9AD095AC19B8254A009DE26D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AD095AD19B8254A009DE26D /* Build configuration list for PBXNativeTarget "CalendarCollectionViewTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +501,7 @@
 				9AD095AF19B8254A009DE26D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

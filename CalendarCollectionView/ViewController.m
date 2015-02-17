@@ -7,22 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "CalendarCollectionViewCell.h"
 
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+#import "MonthView.h"
 
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@interface ViewController () <MonthViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-
-@property int month;
-@property int year;
-
-@property (nonatomic, strong) NSDate *startDateInMonth;
-@property int numberWeeksInMonth;
-
-- (IBAction)previousSelect:(id)sender;
-- (IBAction)nextSelect:(id)sender;
+@property (strong, nonatomic) IBOutlet MonthView *monthView;
 
 @end
 
@@ -31,184 +21,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [self.monthView setDelegate:self];
     
-    NSCalendar *calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSBuddhistCalendar];
-    [calender setTimeZone:[NSTimeZone defaultTimeZone]];
-    
-    NSDateComponents *com = [calender components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:[NSDate date]];
-    
-    self.month = com.month;
-    self.year = com.year;
-    
-    [self updateCurrentCalendar];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//    [self.monthView showMonthWithDate:[NSDate date]];
+    [self.monthView showMonthWithFromDate:[[NSDate date] dateByAddingTimeInterval:-10*24*60*60] toDate:[NSDate date]];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [self.collectionView reloadData];
+{    
+    [self.monthView reloadInputViews];
 }
 
-- (void)updateCurrentCalendar
+#pragma mark - MonthView
+
+- (void)monthView:(MonthView *)monthView changeMonth:(int)month year:(int)year
 {
-    // Current Month Date Calender day 1
-    NSCalendar *calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSBuddhistCalendar];
-    [calender setFirstWeekday:1];
     
-    NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
-    [dateFormater setDateFormat:@"dd/MM/yyyy"];
-    [dateFormater setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    [dateFormater setCalendar:calender];
-    
-    NSString *dateStr = [NSString stringWithFormat:@"01/%.2d/%.4d",self.month, self.year];
-    NSDate *curr = [dateFormater dateFromString:dateStr];
-    
-    /// find weekday in first month (day 1)
-    NSDateComponents *com = [calender components:NSCalendarUnitWeekday fromDate:curr];
-    int weekday = com.weekday;
-    
-    /// find number of weeks in month
-    NSRange weekRange = [calender rangeOfUnit:NSWeekCalendarUnit inUnit:NSMonthCalendarUnit forDate:curr];
-    self.numberWeeksInMonth = weekRange.length;
-    
-    // start date in calendar
-    self.startDateInMonth = [curr dateByAddingTimeInterval:-60*60*24*(weekday-1)];
-    
-    /// Set Date String Month Year
-    NSDateFormatter *dateFormater1 = [[NSDateFormatter alloc] init];
-    [dateFormater1 setDateFormat:@"MMMM yyyy"];
-    [dateFormater setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    [dateFormater1 setCalendar:calender];
-    [dateFormater1 setLocale:[NSLocale localeWithLocaleIdentifier:@"th"]];
-    
-    [self.dateLabel setText:[dateFormater1 stringFromDate:curr]];
-    
-    /// Reload Collection
-    [self.collectionView reloadData];
 }
 
-#pragma mark - UICollectionView
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)monthView:(MonthView *)monthView selectDate:(NSDate *)selectDate
 {
-    CalendarCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ExampleCellID" forIndexPath:indexPath];
     
-    NSDate *cellDate = [self.startDateInMonth dateByAddingTimeInterval:60*60*24*indexPath.row];
-    
-    NSCalendar *calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSBuddhistCalendar];
-    [calender setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    [calender setFirstWeekday:1];
-    
-    NSDateComponents *com = [calender components:(NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday) fromDate:cellDate];
-    
-    // Check month is Current
-    if (com.month != self.month)
-    {
-        [cell.calendarNumberLabel setTextColor:[UIColor darkGrayColor]];
-        [cell setBackgroundColor:[UIColor grayColor]];
-    }
-    else
-    {
-        [cell.calendarNumberLabel setTextColor:[UIColor whiteColor]];
-        if (com.weekday == 1)
-        {
-            [cell setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.500]];
-        }
-        else if (com.weekday == 7)
-        {
-            [cell setBackgroundColor:[UIColor colorWithRed:0.500 green:0.000 blue:0.500 alpha:0.500]];
-        }
-        else
-        {
-            [cell setBackgroundColor:[UIColor blackColor]];
-        }
-    }
-    
-    // setting day cell
-    [cell.calendarNumberLabel setText:[NSString stringWithFormat:@"%d",com.day]];
-    [cell setCalendarDate:cellDate];
-    
-    return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)monthView:(MonthView *)monthView detailWithDate:(NSDate *)date
 {
-    CalendarCollectionViewCell *cell = (CalendarCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
-    NSCalendar *calender = [[NSCalendar alloc] initWithCalendarIdentifier:NSBuddhistCalendar];
-    [calender setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    [calender setFirstWeekday:1];
-    
-    NSDateComponents *com = [calender components:(NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:cell.calendarDate];
-    
-    if (com.year < self.year)
-    {
-        [self previousSelect:nil];
-    }
-    else if (com.year > self.year)
-    {
-        [self nextSelect:nil];
-    }
-    else if (com.month < self.month)
-    {
-        [self previousSelect:nil];
-    }
-    else if (com.month > self.month)
-    {
-        [self nextSelect:nil];
-    }
-    else
-    {
-        NSLog(@"%@",cell.calendarDate);
-    }
+    return @"8:00\n24:00";
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (BOOL)monthView:(MonthView *)monthView showOptionWithDate:(NSDate *)date height:(float)height
 {
-    return self.numberWeeksInMonth * 7;
+    return YES;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)monthView:(MonthView *)monthView optionWithDate:(NSDate *)date height:(float)height
 {
-    return CGSizeMake((int)(collectionView.frame.size.width/7), (int)(collectionView.frame.size.height/self.numberWeeksInMonth));
-}
-
-#pragma mark - Action
-
-- (IBAction)previousSelect:(id)sender
-{
-    if (self.month == 1)
-    {
-        self.month = 12;
-        self.year -= 1;
-    }
-    else
-    {
-        self.month -= 1;
-    }
-    
-    [self updateCurrentCalendar];
-}
-
-- (IBAction)nextSelect:(id)sender
-{
-    if (self.month == 12)
-    {
-        self.month = 1;
-        self.year += 1;
-    }
-    else
-    {
-        self.month += 1;
-    }
-    
-    [self updateCurrentCalendar];
+    return @"10";
 }
 
 @end
